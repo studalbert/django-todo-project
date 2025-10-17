@@ -5,6 +5,8 @@ package-mode = false
 python = "^3.12"
 django = "^5.2.7"
 django-debug-toolbar = "^6.0.0"
+celery = "^5.5.3"
+django-celery-results = "^2.6.0"
 
 
 

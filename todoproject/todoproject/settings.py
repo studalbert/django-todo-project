@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
+    'django_celery_results',
     'todo_list.apps.TodoListConfig',
     'email_newsletters.apps.EmailNewslettersConfig'
 ]
@@ -135,6 +136,18 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 if DEBUG:
     EMAIL_HOST = "0.0.0.0"
     EMAIL_PORT = 1025
+
+DEFAULT_HOST = "http://127.0.0.1:8000"
+
+# Celery Configuration Options
+CELERY_TIMEZONE = "Europe/Moscow"
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+CELERY_BROKER_URL = "amqp://guest:guest@localhost:5672//"
+# CELERY_RESULT_BACKEND = "rpc://"
+CELERY_RESULT_BACKEND = "django-db"
+CELERY_RESULT_PERSISTENT = True
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 
 # TESTING = "test" in sys.argv or "PYTEST_VERSION" in os.environ
 #
