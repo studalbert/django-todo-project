@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'todo_list.apps.TodoListConfig',
+    'email_newsletters.apps.EmailNewslettersConfig'
 ]
 
 MIDDLEWARE = [
@@ -129,6 +130,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+if DEBUG:
+    EMAIL_HOST = "0.0.0.0"
+    EMAIL_PORT = 1025
 
 # TESTING = "test" in sys.argv or "PYTEST_VERSION" in os.environ
 #
