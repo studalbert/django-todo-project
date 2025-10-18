@@ -3,6 +3,12 @@ from django import forms
 from todo_list.models import ToDoItem
 
 
+class ToDoItemSearchForm(forms.Form):
+    search = forms.CharField(
+        label='search todo items',
+        required=False,
+    )
+
 class ToDoItemCreateForm(forms.ModelForm):
     class Meta:
         model = ToDoItem
